@@ -4,6 +4,7 @@ import {FilterBtn, FiltersContainer, Form, GitHubLogo, Main, MainHeading, Search
 import searchIcon from "../../images/searchIcon.svg";
 import githubLogo from "../../images/githubLogo.png";
 import ReposList from "../repo-list";
+import { SEARCH_REPOS_URL,sortingOptions,orderingOptions } from "../../consts/search-consts";
 
 const Search = () => {
   const [loadingData, setLoadingData] = useState(false);
@@ -13,20 +14,7 @@ const Search = () => {
   const [orderBy, setOrderBy] = useState(""); //asc || desc
   const [sortBy, setSortBy] = useState(""); // stars || forks
 
-  const sortingOptions = [
-    {
-      id: "1",
-      value: "stars",
-    },
-    { id: "2", value: "forks" },
-  ];
-  const orderingOptions = [
-    {
-      id: "1",
-      value: "desc",
-    },
-    { id: "2", value: "asc" },
-  ];
+
 
   //
 
@@ -36,8 +24,8 @@ const Search = () => {
     setLoadingData(true);
     setError(false)
     setReposData([]);
-    const baseUrl = "https://api.github.com/search/repositories?q=";
-    const getReposUrl = `${baseUrl}${searchQuery}&sort=${sortBy}&order=${orderBy}`;
+ 
+    const getReposUrl = `${SEARCH_REPOS_URL}${searchQuery}&sort=${sortBy}&order=${orderBy}`;
     await fetch(getReposUrl)
       .then((response) => response.json())
       .then((data) => {

@@ -11,6 +11,10 @@ export const Main = styled.main`
 export const MainHeading = styled.h1`
   font-size: 32px;
   align-self: baseline;
+  @media only screen and (max-width:768px){
+  font-size: 24px;
+  margin: auto;
+  }
 `;
 
 export const SearchHead = styled.div`
@@ -27,6 +31,8 @@ export const Form = styled.form`
   position: relative;
   display: flex;
   align-items: center;
+  max-width: 90%;
+  margin: auto;
 `;
 
 export const SearchBtn = styled.button`
@@ -61,6 +67,11 @@ export const FiltersContainer = styled.div`
   align-items: center;
   align-self: self-start;
   gap: 0 20px;
+  @media only screen and (max-width:768px){
+    flex-direction:column;
+    gap:10px;
+    margin:auto;
+      }
 `;
 
 export const FilterBtn = styled.button`
@@ -85,10 +96,10 @@ export const FilterBtn = styled.button`
 export const Warning = styled.h5`
   color: rgba(228, 68, 39, 0.788);
   font-size: 14px;
-  font-weight:normal;
+  font-weight: normal;
   text-decoration: underline;
   display: block;
   margin-top: 10px;
   text-align: center;
-  text-transform:Capitalize;
+  text-transform: Capitalize;
 `;
